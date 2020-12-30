@@ -1,0 +1,633 @@
+*{
+	box-sizing: border-box; /*Запрещает изменение размеров блоков изза padding и border*/
+}
+
+body{
+	background-color: #0E0E0E; /*Задаем основной фоновый цвета сайта, смотря на макет*/
+	color: #fff; /*Задаем основной цвет шрифта для всего сайта (позже в определенный текст стилизуется отдельно)*/
+	font-family: 'Roboto Condensed', sans-serif; /*Задаем шрифт для всего сайта(Google Fonts)*/
+	font-weight: 400px; /*Жирность шрифта для всего текта на сайте(позже в определенный текст стилизуется отдельно)*/
+	font-size: 18px; /*Размер шрифта для всего текта на сайте(позже в определенный текст стилизуется отдельно)*/
+	line-height: 21px; /*Высота строки для всего текта на сайте(позже в определенный текст стилизуется отдельно)*/
+}
+
+a{
+	color: inherit; /*Цвет наследуется(inherit) от предка(смотри color в body)*/
+	text-decoration: none; /*Отключаем текстовую декорацию*/
+}
+
+.container{
+	max-width: 1080px;
+	padding: 0 10px;
+	margin: 0 auto;
+}
+.container__two{
+	width: 1220px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+.section-page{
+	padding: 100px;
+}
+
+.title{
+	text-align: center;
+	margin-bottom: 100px;
+	font-size: 36px;
+	line-height: 42px;
+	font-weight:400; 
+}
+
+ul{
+	list-style: none; /*Отключаем декорацию для маркированого списка*/
+}
+
+.header{
+	background-image: url(../images/header-bg.jpg); /*Фоновая картинка*/
+	height: 100vh; /*Высота 100vh = 100% высоты окна браузера*/
+	background-repeat: no-repeat; /*Запрещает картинке размножаться*/
+	background-size: cover; /*Позволяет картинке масштабироваться при уменшении окна браузера*/
+	background-position: center 50px; /*Позиционируем фоновую картнку по центру и смещаем на 50px вниз из-за градиента*/
+	text-align: center; /*Выравниваем текст и логотип(?) по центру*/
+	position: relative; /*".header::after" абсолютно спозиционирован относительно ".header"*/
+}
+
+.header::after{ /*Псевдо элемент*/
+	content: ""; /*Обязательная строчка для псевдо элемента*/
+	position: absolute; /*".header::after" абсолютно спозиционирован относительно ".header"*/
+	height: 71px; /*Высота градиента*/
+	bottom: 0; /*Отступ снизу*/
+	left: 0; /*Отступ слева*/
+	width: 100%; /*Ширина на всю ширину сайта*/
+	background: linear-gradient(180deg, #0E0E0E 0%, rgba(17, 17, 17, 0.850295) 16.53%, rgba(32, 31, 33, 0) 100%); /*Вставили градиент из Figma*/
+	transform: rotate(180deg); /*Повернули градиент на 180 градусов*/
+}
+
+.menu{
+	padding: 50px 0 50px; /*Отступы(внутренние) от границ элемента*/
+	background: linear-gradient(180deg, #111213 0%, #111213 43.62%, rgba(32, 31, 33, 0) 86.33%); /*Вставили градиент из Figma*/
+}
+
+.menu__btn {
+	display: none;
+}
+
+.menu__list{
+	display: flex; /*Все пункты нашего списка встали в ряд*/
+	justify-content: center; /*Выравнивает контент по центру страницы(не текст, а контент)*/
+}
+
+.menu__list-item{
+	padding: 0 13px; /*Сделали отступы между сезонами/Отступы(внутренние) от границ элемента(тут можно было и margin, или для ссылки тоже margin(НЕ padding))*/
+}
+
+.menu__list-link{
+	font-size: 36px; /*Размер шрифта*/
+	line-height: 42px; /*Высота строки*/
+}
+
+.menu__list-link:hover,
+.menu__list-link--active{ /*Состояние текста(ссылки) при навелении на него курсором*/
+	color: #85CCDC; /*Цвет текста при наведении на ссылку*/
+	text-decoration: underline; /*Тестовая декорация (нижнее подчеркивание)*/
+}
+
+.logo{
+	padding-top: 20vh; /*Опустили логотип/Отступы(внутренние) от границ элемента*/
+}
+
+.about__inner{
+	display: flex;
+}
+
+.about__info{
+	width: 375px;
+	margin-right: 50px;
+	flex: none;
+}
+
+.about__info-item span{
+	display: block;
+}
+
+.about__info-item{
+	margin-bottom: 25px;
+	color: #E5E5E5;
+}
+
+.about__text p{
+	margin-bottom: 25px;
+}
+
+.video{
+	background-image: url(../images/video-bg.jpg); /*Фоновая картинка*/
+	height: 115vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	text-align: right;
+}
+
+.video__text{
+	font-style: italic;
+	font-weight: 300;
+	font-size: 72px; 
+	line-height: 84px;
+	color: #85CCDC;
+	padding-top: 50vh;
+	margin-bottom: 40px;
+}
+
+.video__text span{
+	display: block;
+	padding-right: 215px;
+}
+
+.video__btn{
+	padding-left: 112px;
+	position: relative; /*".video__btn::before" абсолютно спозиционирован относительно ".video__btn"*/
+	margin-right: 230px;
+}
+
+.video__btn::before{ /*Псевдо элемент*/
+	content: ""; /*Обязательная строчка для псевдо элемента*/
+	position: absolute; /*".video__btn::before" абсолютно спозиционирован относительно ".video__btn"*/
+	width: 100px;
+	height: 100px;
+	left: 0;
+	background-image: url(../images/youtube-btn.svg); /*Фоновая картинка*/
+	top: -40px;
+}
+
+.seasons__inner {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	grid-gap: 100px 75px;
+	counter-reset: number;
+	padding-top: 50px;
+}
+
+
+.seasons__item {
+	/* width: 350px; */
+	height: 250px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	list-style: none;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.seasons__item::before {
+	content: '0' counter(number);
+	counter-increment: number;
+	font-weight: bold;
+	font-size: 96px;
+	line-height: 112px;
+	color: #600E09;
+	position: absolute;
+	left: 0;
+	top: -73px;
+	z-index: -1;
+}
+
+.seasons__item:nth-child(n+10)::before {
+	content: counter(number);
+
+}
+
+.seasons__link {
+	font-size: 36px;
+	line-height: 42px;
+	padding: 12px 78px 11px;
+	background-color: #0E0E0E;
+	opacity: 0;
+	transition: all 0.3s;
+	z-index: 2;
+}
+
+.seasons__item:hover .seasons__link{
+	opacity: 1;																	/* Интересно */
+}
+
+.seasons__item:hover::after{
+	content: '';
+	background: rgba(14, 14, 14, 0.8);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.heroes__inner {
+	display: flex;
+	/* justify-content: space-between; */
+}
+
+.heroes__slider-img {
+max-width: 775px;
+}
+
+.heroes__slider-text p{
+	padding-bottom: 17px;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 21px;
+}
+
+.heroes__text {
+	max-width: 350px;
+	margin-left: 75px;
+}
+
+.heroes__name {
+	font-style: italic;
+	font-weight: 300;
+	font-size: 72px;
+	line-height: 84px;
+	color: #85CCDC;
+	padding-bottom: 44px;
+}
+
+.slick-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	border: none;
+	background-color: transparent;
+	z-index: 5;
+	cursor: pointer;
+	outline: none;
+}
+
+.slick-prev{
+	left: 38px;
+}
+
+.slick-next{
+	right: 38px;
+}
+
+.copy {
+	padding: 14px 0 15px;
+	text-align: center;
+}
+
+
+/* season 1 */
+
+
+.page-logo {
+	position: absolute;
+	left: 0;
+}
+
+.menu__container {
+	max-width: 1385px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.page-header {
+	background-image: url(../images/season1-bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	height: 90vh;
+	position: relative;
+}
+
+.season__info {
+	position: absolute;
+	max-width: 1385px;
+	display: flex;
+	padding: 44px 47px 64px 35px;
+	background: #0E0E0E;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+
+.season__info-num {
+	font-style: normal;
+	font-weight: bold;
+	font-size: 96px;
+	line-height: 63px;
+	text-align: center;
+	padding-right: 51px;
+
+}
+
+.season__info-num span{
+	font-size: 36px;
+	display: block;
+	line-height: 28px;
+}
+
+.season__info-text p{
+	padding-bottom: 15px;
+}
+
+
+/* Aдаптив */
+
+@media(max-width: 1420px){
+	.page-logo {
+		left: 20px;
+		top: -6px;
+	}
+}
+
+
+@media(max-width: 1366px){
+	.logo__img{
+		max-width: 50%;
+	}
+	.menu__list-link {
+		font-size: 24px;
+		line-height: 32px;
+	}
+	.about__info {
+		width: 250px;
+	}
+	.video__btn {
+		margin-right: 125px;
+	}
+	.heroes__inner {
+		flex-direction: column;
+    align-items: center;
+	}
+	.heroes__text {
+		/* width: 100%; */
+		max-width: 100%;
+		margin-left: 0;
+		padding-top: 20px;
+	}
+	.heroes__name {
+		padding-bottom: 20px;
+		text-align: center;
+	}
+	.page-header {
+		height: 120vh;
+	}
+	.page-logo {
+		left: 90px;
+		top: -8px;
+	}
+	.season__info{
+		max-width: 1150px;
+	}
+	
+}
+
+@media(max-width: 1350px){
+	.video {
+		height: 109vh;
+	}
+}
+
+@media(max-width: 1088px){
+	.seasons__item {
+		height: 340px;
+	}
+}
+
+@media(max-width: 1024px){
+	.page-header {
+		background-position: -893px center;
+	}
+}
+
+@media(max-width: 1105px){
+	.page-logo{
+		display: none;
+	}
+}
+
+@media(max-width: 950px){
+	.heroes__inner {
+		display: block;
+	}
+	.heroes__text {
+		/* width: 100%; */
+		max-width: 100%;
+		margin-left: 0;
+		padding-top: 20px;
+	}
+	.heroes__name {
+		padding-bottom: 20px;
+	}
+	.page-logo {
+		display: none;
+	}
+}
+
+@media(max-width: 800px){
+	.about__inner {
+		display: block;
+	}
+	.section-page {
+		padding: 50px;
+	}
+	.title{
+		margin-bottom: 35px;
+		font-size: 28px;
+		line-height: 36px;
+	}
+	.video__text{
+		font-size: 52px;
+		line-height: 55px;
+	}
+	.video__text span{
+		padding-right: 190px;
+	}
+	.video__btn {
+		margin-right: 30px;
+		padding-left: 80px;
+	}
+	.video__btn::before{
+		top: -25px;
+		width: 70px;
+		height: 70px;
+		background-size: cover;
+	}
+	.menu__list-link {
+		font-size: 20px; /*Размер шрифта*/
+
+	}
+	
+}
+
+@media(max-width: 768px){
+	.page-header {
+		background-position: -1013px center;
+	}
+.seasons__inner {
+	grid-gap: 80px 35px;
+	}
+	.title{
+		margin-bottom: 50px;
+		font-size: 28px;
+		line-height: 36px;
+	}
+	.season__info {
+		display: block;
+		padding: 44px 47px 26px 35px;
+	}
+	.season__info-num {
+		padding-right: 0;	
+		padding-bottom: 15px;	
+	}
+}
+
+@media(max-width: 720px){
+	.seasons__inner {
+		align-items: center;
+	}
+}
+
+@media(max-width: 640px){
+	.page-header {
+		background-position: -1018px center;
+		height: 170vh;
+}
+	.header{
+		background-position: center 17px;
+	}
+	.menu{
+		padding: 0;
+		background: linear-gradient(180deg, #111213 7%, #111213 5%, rgba(32, 31, 33, 0) 55.33%);
+	}
+	.menu__btn {
+		display: block;
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+		position: absolute;
+		top: 20px;
+		right: 10px;
+		z-index: 5;
+	}
+	.menu__list {
+		display: block;
+		transform: translateY(-130%);
+		transition: all 0.3s;
+		text-align: center;
+	}
+	.menu__list.menu__list--active {
+		transform: translateY(0%);
+		padding: 90px 0 50px;
+		background-color: #0E0E0E;
+		opacity: 86%;
+	}
+	.menu__list-link {
+		display: block;
+		padding: 10px 0;
+		z-index: 5;
+	}
+	.page-logo{
+		display: block;
+		position: absolute;
+		top: 26px;
+		left: 38.5%;
+		z-index: 5;
+	}
+	.logo{
+		padding-top: 21vh;
+	}
+	.video__text {
+    font-size: 45px;
+    line-height: 48px;
+	}
+	.video__btn {
+    margin-right: 6px;
+	}
+	.video__text span {
+    padding-right: 177px;
+	}
+	.seasons__item {
+		height: 415px;
+	}
+}
+
+@media(max-width: 460px){
+	.heroes__name {
+		font-size: 53px;
+		line-height: 50px;
+	}
+	
+}
+
+@media(max-width: 425px){
+	.page-header{
+		background-position: -1178px -103px;
+	}
+}
+
+@media(max-width: 414px){
+	.seasons__item {
+		height: 205px;
+	}
+}
+
+@media(max-width: 375px){
+	.page-header {
+		height: 150vh;
+    background-position: -1566px -110px;
+	}
+}
+
+@media(max-width: 360px){
+	.heroes__name {
+		text-align: center;
+	}
+	.heroes__slider-text p{
+		font-size: 15px;
+    line-height: 17px;
+	}
+	.slick-next {
+    right: 0px;
+	}
+	.slick-prev {
+    left: 0px;
+	}
+}
+
+
+@media(max-width: 320px){
+	.page-header {
+		background-position: -1593px -110px;
+	}
+	.seasons__item {
+		height: 194px;
+	}
+	body{
+		font-size: 16px;
+		line-height: 16px;
+	}
+	.video__text span {
+    padding-right: 25px;
+	}
+	.video__text {
+    font-size: 41px;
+    line-height: 45px;
+	}
+	.video__btn {
+		font-size: 0;
+		left: -52px;
+	}
+	.section-page {
+    padding: 21px;
+	}
+	.copy {
+    font-size: 10px;
+    padding-left: 10px;
+	}
+}
